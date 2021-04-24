@@ -167,7 +167,7 @@ def train_network(env):
     print('\nBest genome:\n{!s}'.format(winner))
     print('\nOutput:')
 
-    raw_input("Press Enter to run the best genome...")
+    input("Press Enter to run the best genome...")
     winner_net = nn.create_feed_forward_phenotype(winner)
     for i in range(100):
         simulate_species(winner_net, env, 1, args.max_steps, render=True)

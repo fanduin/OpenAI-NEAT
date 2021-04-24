@@ -8,7 +8,7 @@ from neat import nn, population, statistics, parallel
 ### User Params ###
 
 # The name of the game to solve
-game_name = 'CartPole-v0'
+game_name = 'SpaceInvaders-ram-v0'
 
 ### End User Params ###
 
@@ -100,12 +100,12 @@ def train_network(env):
     print('\nBest genome:\n{!s}'.format(winner))
     print('\nOutput:')
 
-    raw_input("Press Enter to run the best genome...")
+    input("Press Enter to run the best genome...")
     winner_net = nn.create_feed_forward_phenotype(winner)
     for i in range(100):
         simulate_species(winner_net, env, 1, args.max_steps, render=True)
 
 my_env = gym.make(game_name)
-print "Input Nodes: %s" % str(len(my_env.observation_space.high))
-print "Output Nodes: %s" % str(my_env.action_space.n)
+print("Input Nodes: %s" % str(len(my_env.observation_space.high)))
+print("Output Nodes: %s" % str(my_env.action_space.n))
 train_network(my_env)
